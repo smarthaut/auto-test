@@ -21,6 +21,7 @@ public class YmlUtil {
         InputStream is = YmlUtil.class.getClassLoader().getResourceAsStream(filename);
         Yaml yaml =new Yaml();
         Object obj = yaml.loadAs(is,Map.class);
+//        System.out.println(obj);
         Map<String, Object> param = (Map<String, Object>) obj;
         for(Map.Entry<String,Object> entry:param.entrySet()){
             String key = entry.getKey();
@@ -50,7 +51,7 @@ public class YmlUtil {
      * @param obj
      * @return
      */
-    public static Map<String,String> forEachYaml(String key_str,Map<String, Object> obj){
+    public static void forEachYaml(String key_str,Map<String, Object> obj){
         for(Map.Entry<String,Object> entry:obj.entrySet()){
             String key = entry.getKey();
             Object val = entry.getValue();
@@ -66,7 +67,6 @@ public class YmlUtil {
                 result.put(str_new,val.toString());
             }
         }
-        return result;
     }
 
 }
