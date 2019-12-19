@@ -2,12 +2,12 @@ package com.huanghe.autotest.util;
 
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,54 +19,69 @@ import java.util.List;
 public class XlsUtil {
     private static final String EXCEL_XLS = "xls";
     private static final String EXCEL_XLSX = "xlsx";
-    public List readExcel(String file,String sheetName) {
+    private  static HashMap<String,Object> dataMap;
+    private static ArrayList innerList;
+    private static ArrayList titleList;
+
+    public static List readExcel(String file,String sheetName) {
         try {
             // 创建输入流，读取Excel
-            InputStream is = this.getClass().getClassLoader().getResourceAsStream(file);
+            InputStream is = XlsUtil.class.getClassLoader().getResourceAsStream(file);
             // jxl提供的Workbook类
             Workbook wb = getWorkbok(file);
             Sheet sheet = wb.getSheet(sheetName);
-            for (int index =0;index<sheet.getLastRowNum();index++){
-
+            innerList = new ArrayList();
+            titleList = new ArrayList();
+            dataMap = new HashMap();
+            //获取标题
+            for (int cellnum = 0; cellnum < sheet.getRow(0).getLastCellNum();cellnum++) {
+                Cell cells = sheet.getRow(0).getCell(cellnum);
+                titleList.add(cells.getRichStringCellValue().getString());
             }
-//            // Excel的页签数量
-//            int sheet_size = wb.getNumberOfSheets();
-//            for (int index = 0; index < sheet_size; index++) {
-//                List<List> outerList=new ArrayList<List>();
-//                // 每个页签创建一个Sheet对象
-//                Sheet sheet = wb.getSheet(String.valueOf(index));
-//                for (int i = 0; i < (sheet.getLastRowNum()+1); i++) {
-//                    List innerList=new ArrayList();
-//                    // sheet.getColumns()返回该页的总列数
-//                    for (int j = 0; j < sheet.getColumns(); j++) {
-//                        String cellinfo = sheet.getCell(j, i).getContents();
-//                        if(cellinfo.isEmpty()){
-//                            continue;
-//                        }
-//                        innerList.add(cellinfo);
-//                        System.out.print(cellinfo);
-//                    }
-//                    outerList.add(i, innerList);
-//                    System.out.println();
-//                }
-//                return outerList;
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (BiffException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+            System.out.println("title"+titleList);
+
+            for (int i =1;i <= sheet.getLastRowNum();i++){
+                //第一行为标题，去除
+                for (int j = 0; j <= sheet.getRow(i).getLastCellNum();j++){
+                    Cell cell = sheet.getRow(i).getCell(j);
+                    if (cell == null){
+                        innerList.add("");
+                        continue;
+                    }
+                    switch (cell.getCellType()) {
+                        case Cell.CELL_TYPE_STRING:
+                            dataMap.put(titleList.get(j).toString(),cell.getRichStringCellValue().getString());
+                            innerList.add(cell.getRichStringCellValue().getString());
+                            break;case Cell.CELL_TYPE_NUMERIC: if (DateUtil.isCellDateFormatted(cell)) {
+                                dataMap.put(titleList.get(j).toString(), cell.getDateCellValue());
+                                innerList.add(cell.getDateCellValue());
+                            } else {
+                                dataMap.put(titleList.get(j).toString(), cell.getNumericCellValue());
+                                innerList.add(cell.getNumericCellValue());
+                            }
+                            break;case Cell.CELL_TYPE_BOOLEAN: dataMap.put(titleList.get(j).toString(), cell.getBooleanCellValue());
+                            innerList.add(cell.getBooleanCellValue());
+                            break;case Cell.CELL_TYPE_FORMULA: dataMap.put(titleList.get(j).toString(), cell.getCellFormula());
+                            innerList.add(cell.getCellFormula());
+                            break;default: dataMap.put(titleList.get(j).toString(), "");
+                            innerList.add("");
+                            break;
+                        }
+
+                    }
+
+                }
+
         }catch (Exception e){
             e.printStackTrace();
         }
-        return null;
+        System.out.println("datamap"+dataMap);
+        return innerList;
     }
     /**
      * 判断Excel的版本,获取Workbook
-     * @param in
-     * @param filename
+     * @param
+     * @param
      * @return
      * @throws IOException
      */
