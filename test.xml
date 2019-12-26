@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="GBK"?>
 
-<books>
-  <!--This is a test for dom4j, holen, 2004.9.11-->
-  <book show="yes">
-    <title>Dom4j Tutorials</title>
-  </book>
-  <book show="yes">
-    <title>Lucene Studing</title>
-  </book>
-  <book show="no">
-    <title>Lucene in Action</title>
-  </book>
-  <owner>O'Reilly</owner>
-</books>
+<datas>
+  <data name="frame_no" value="LVTDB14B0EC008813"/>
+  <data name="insured_id_no" value="230184198708193015"/>
+  <data name="applicant_mobile" value="18646099523"/>
+  <data name="owner_name" value="霍国君"/>
+  <data name="city" value="哈尔滨"/>
+  <data name="selected_car_model_detail" value="{&quot;brand_name&quot;:&quot;奇瑞&quot;,&quot;codeSet&quot;:[],&quot;description&quot;:null,&quot;engine_desc&quot;:&quot;1.971L&quot;,&quot;extendInfo&quot;:{&quot;code&quot;:&quot;81515405166382094&quot;,&quot;com&quot;:&quot;zhonghua_official&quot;,&quot;guid&quot;:null},&quot;family_name&quot;:&quot;瑞虎5&quot;,&quot;gearbox_name&quot;:&quot;&quot;,&quot;group_name&quot;:null,&quot;industry_model_code&quot;:null,&quot;market_date&quot;:&quot;201311&quot;,&quot;model_code&quot;:&quot;QRD1689SQQ&quot;,&quot;parent_veh_name&quot;:&quot;奇瑞SQR6450T217 家享版&quot;,&quot;price&quot;:83900,&quot;seat&quot;:5,&quot;standard_name&quot;:&quot;奇瑞SQR6450T217多用途乘用车&quot;,&quot;taxprice&quot;:0,&quot;vehicle_fgw_code&quot;:&quot;QRD1689SQQ&quot;,&quot;vehicle_quality&quot;:0,&quot;vehicle_type&quot;:null,&quot;weight&quot;:0}"/>
+  <data name="insurance_company" value="ZHONGHUA_OFFICIAL"/>
+  <data name="owner_mobile" value="18646099523"/>
+  <data name="car_model_no" value="奇瑞SQR6450T217多用途乘用车"/>
+  <data name="insured_mobile" value="18646099523"/>
+  <data name="is_new_car" value="0"/>
+  <data name="applicant_name" value="霍国君"/>
+  <data name="license_no" value="黑L74H33"/>
+  <data name="reg_date" value="2014-03-07"/>
+  <data name="applicant_id_no" value="230184198708193015"/>
+  <data name="engine_no" value="TAEB02179"/>
+  <data name="province" value="黑龙江"/>
+  <data name="insured_name" value="霍国君"/>
+  <data name="beneficiary" value=""/>
+  <data name="price" value="8.39"/>
+  <data name="is_loaned" value="0"/>
+  <data name="owner_id_no" value="230184198708193015"/>
+  <data name="is_special_car" value="0"/>
+  <data name="seat_num" value="5"/>
+</datas>

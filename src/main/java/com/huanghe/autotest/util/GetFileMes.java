@@ -2,9 +2,6 @@ package com.huanghe.autotest.util;
 
 
 import org.apache.log4j.Logger;
-import sun.security.krb5.Config;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

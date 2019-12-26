@@ -1,4 +1,6 @@
 package com.huanghe.autotest.learn;
+import java.util.HashSet;
+import	java.util.Set;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +21,20 @@ public class Demo {
     }
 
     private static void setage() {
+
         result.put("age" , "18");
     }
-    public static void main() {
-        System.out.println(demo());
+
+    public static void main(String[] args) {
+        Set<String> a = new HashSet<>();
+        Set<String> b = new HashSet<> ();
+        a.add("apple");
+        a.add("pear");
+        b.add("banana");
+        b.add("watermelon");
+        b.add("apple");
+        a.addAll(b);
+        System.out.println(a);
     }
+
 }

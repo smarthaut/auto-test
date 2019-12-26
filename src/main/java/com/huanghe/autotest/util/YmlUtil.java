@@ -13,16 +13,20 @@ import java.util.Map;
  */
 public class YmlUtil {
     private static  String config_file = "config.yml";
-    private static Map<String, String> result = new HashMap<String, String> ();
-    public static  Map<String, String> getYmlByFileName(String filename){
+    private static Map<String, String> result = new HashMap ();
+    public static Map<String, Object> getYmlByFileName(String filename){
         result = new HashMap<>();
         if(filename == null)
             filename = config_file;
         InputStream is = YmlUtil.class.getClassLoader().getResourceAsStream(filename);
         Yaml yaml =new Yaml();
         Object obj = yaml.loadAs(is,Map.class);
-//        System.out.println(obj);
         Map<String, Object> param = (Map<String, Object>) obj;
+//        parseYaml(param);
+        return param;
+    }
+
+    public  static Map<String,String> parseYaml(Map<String, Object> param) {
         for(Map.Entry<String,Object> entry:param.entrySet()){
             String key = entry.getKey();
             Object val = entry.getValue();
@@ -35,13 +39,15 @@ public class YmlUtil {
         }
         return result;
     }
+
     /**
      * 根据key获取值
      * @param key
      * @return
      */
     public static String getValue(String key){
-        Map<String,String> map = getYmlByFileName(null);
+        Map<String,String> map = parseYaml(getYmlByFileName(null));
+        System.out.println("map"+map);
         if(map==null)return null;
         return map.get(key);
     }

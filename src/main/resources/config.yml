@@ -60,113 +60,113 @@ mysql:
 #
 #
 #
-#insured:
-#  department: ''
-#  device_type: android
-#  query_type: CAR_MODEL_NO
-#  provider: official
-#  area: ''
-#  force_only: 0
-#  choose_force: 0
-#  car_broken: 1
-#  car_burn: 0
-#  car_rob: 0
-#  wade_water: 0
-#  third_party: 500000
-#  driver_seat: 10000
-#  passenger_seat: 10000
-#  glass_broken: 0
-#  scratch: 0
-#  specify_repair_factory: 0
-#  find_no_third_party: 0
-#  third_party_double_on_holiday: 0
-#  non_deduct_car_broken: 1
-#  non_deduct_car_rob: 0
-#  non_deduct_driver_seat: 1
-#  non_deduct_passenger_seat: 1
-#  non_deduct_third_party: 1
-#  non_deduct_scratch: 0
-#  non_deduct_wade_water: 0
-#  non_deduct_car_burn: 0
-#  pay_tax: 0
-#  user_ins_start_date_change: 0
-#  user_force_start_date_change: 0
-#  ins_start_date: ''
-#  ins_start_hour: ''
-#  force_start_date: ''
-#  force_start_hour: ''
-#  price_channel: more
-#  charged_matched: 0
-#  validate_start_date: 1
-#  id: 0
-#  immediate_effect: 1
-#  insured_same_as_owner: 1
-#  applicant_same_as_owner: 1
-#  applicant_same_as_insured: 0
-#  add_only : 0
-#  insured_province : ''
-#  insured_city : ''
-#  insured_district: ''
-#  insured_detail : ''
-#  car_id : ''
-#  customer_id : ''
-#  gen_new_order: ''
-#  post_time_stamp : ''
-#  order_id: ''
-#  has_addressee_info : '1'
-#  addressee_name : ''
-#  addressee_mobile : ''
-#  addressee_province : ''
-#  addressee_city : ''
-#  addressee_area : ''
-#  addressee_detail : ''
-#  is_self_fetch : 0
-#  fetch_method : 1
-#  district: ''
-#  insurance_company: ''
-#  city: ''
-#  product_source: ''
-#  com_id: ''
-#  message: ''
-#  display_name: ''
-#  price_parity_id: ''
-#  price_parity_version: 1
-#  car_kind: 客车
-#  traffic_management_vehicle_type: 轿车
-#  license_kind: 小型汽车号牌
-#  license_color: 蓝
-#  weight: ''
-#  displacement: ''
-#  curb_weight: ''
-#  power: ''
-#  fuel_type: 燃油
-#  owner_type: 0
-#  insured_type: 0
-#  applicant_type: 0
-#  owner_id_type: 1
-#  insured_id_type: 1
-#  applicant_id_type: 1
-#  car_owner_nature: 1
-#  car_use_nature: 1
-#  business_nature: ''
-#  owner_certificates_valid_type: 2
-#  owner_certificates_valid_date: ''
-#  insured_certificates_valid_type: 2
-#  insured_certificates_valid_date: ''
-#  applicant_certificates_valid_type: 2
-#  applicant_certificates_valid_date: ''
-#  applicant_car_relation: 1
-#  insured_car_relation: 1
-#  owner_car_relation: 1
-#
-#
-#
-ZPC:
-  url: https://www.zhbbroker.com/zhb-pc/#/login
-  user: 17621100841
-  pwd: 12345678
+insured:
+  department: null
+  device_type: android
+  query_type: CAR_MODEL_NO
+  provider: official
+  area: null
+  force_only: 0
+  choose_force: 0
+  car_broken: 1
+  car_burn: 0
+  car_rob: 0
+  wade_water: 0
+  third_party: 500000
+  driver_seat: 10000
+  passenger_seat: 10000
+  glass_broken: 0
+  scratch: 0
+  specify_repair_factory: 0
+  find_no_third_party: 0
+  third_party_double_on_holiday: 0
+  non_deduct_car_broken: 1
+  non_deduct_car_rob: 0
+  non_deduct_driver_seat: 1
+  non_deduct_passenger_seat: 1
+  non_deduct_third_party: 1
+  non_deduct_scratch: 0
+  non_deduct_wade_water: 0
+  non_deduct_car_burn: 0
+  pay_tax: 0
+  user_ins_start_date_change: 0
+  user_force_start_date_change: 0
+  ins_start_date: null
+  ins_start_hour: null
+  force_start_date: null
+  force_start_hour: null
+  price_channel: more
+  charged_matched: 0
+  validate_start_date: 1
+  id: 0
+  immediate_effect: 1
+  insured_same_as_owner: 1
+  applicant_same_as_owner: 1
+  applicant_same_as_insured: 0
+  add_only : 0
+  insured_province : null
+  insured_city : null
+  insured_district: null
+  insured_detail : null
+  car_id : null
+  customer_id : null
+  gen_new_order: null
+  post_time_stamp : null
+  order_id: null
+  has_addressee_info : '1'
+  addressee_name : null
+  addressee_mobile : null
+  addressee_province : null
+  addressee_city : null
+  addressee_area : null
+  addressee_detail : null
+  is_self_fetch : 0
+  fetch_method : 1
+  district: null
+  insurance_company: null
+  city: null
+  product_source: null
+  com_id: null
+  message: null
+  display_name: null
+  price_parity_id: null
+  price_parity_version: 1
+  car_kind: 客车
+  traffic_management_vehicle_type: 轿车
+  license_kind: 小型汽车号牌
+  license_color: 蓝
+  weight: null
+  displacement: null
+  curb_weight: null
+  power: null
+  fuel_type: 燃油
+  owner_type: 0
+  insured_type: 0
+  applicant_type: 0
+  owner_id_type: 1
+  insured_id_type: 1
+  applicant_id_type: 1
+  car_owner_nature: 1
+  car_use_nature: 1
+  business_nature: null
+  owner_certificates_valid_type: 2
+  owner_certificates_valid_date: null
+  insured_certificates_valid_type: 2
+  insured_certificates_valid_date: null
+  applicant_certificates_valid_type: 2
+  applicant_certificates_valid_date: null
+  applicant_car_relation: 1
+  insured_car_relation: 1
+  owner_car_relation: 1
 
-ZPA:
-  url: https://www.zhbbroker.com/zhb-m/#/home
-  user: 17621100841
-  pwd: 12345678
+#
+##
+#ZPC:
+#  url: https://www.zhbbroker.com/zhb-pc/#/login
+#  user: 17621100841
+#  pwd: 12345678
+#
+#ZPA:
+#  url: https://www.zhbbroker.com/zhb-m/#/home
+#  user: 17621100841
+#  pwd: 12345678
