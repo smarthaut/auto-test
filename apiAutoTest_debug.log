@@ -1,0 +1,7 @@
+2019-12-26 16:36:24  [ com.huanghe.autotest.util.HttpHelper.get(47) ] - [ ERROR ]  get
+com.huanghe.autotest.exception.MessageException: 网络地址错误,url:https://www.zhbbroker.com/chc-shop/v1/car/get-area-config
+	at com.huanghe.autotest.util.ExceptionBuilder.create(ExceptionBuilder.java:7)
+	at com.huanghe.autotest.util.HttpHelper.checkStatus(HttpHelper.java:100)
+	at com.huanghe.autotest.util.HttpHelper.get(HttpHelper.java:41)
+	at com.huanghe.autotest.data.DataBuilder.generaXmlName(DataBuilder.java:68)
+	at com.huanghe.autotest.data.DataBuilder.main(DataBuilder.java:109)

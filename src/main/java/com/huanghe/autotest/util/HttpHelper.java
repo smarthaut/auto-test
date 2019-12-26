@@ -2,6 +2,7 @@ package com.huanghe.autotest.util;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
+import org.apache.http.client.CookieStore;
 import org.apache.log4j.Logger;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -22,11 +23,18 @@ public class HttpHelper {
     public  static  Logger log = Logger.getLogger(HttpHelper.class);
 
     public static String get(String requestUrl){
-        return get(requestUrl,null);
+        return get(requestUrl,null,null);
     }
 
-    public static String get(String requestUrl, HttpClientContext context ){
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+    public static String get(String requestUrl, HttpClientContext context,CookieStore cookieStore ){
+        CloseableHttpClient httpClient;
+        if (cookieStore == null) {
+             httpClient = HttpClients.createDefault();
+        }
+        else {
+             httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();;
+        }
+
         try {
             HttpGet httpGet = new HttpGet(requestUrl);
             HttpResponse response = httpClient.execute(httpGet,context);
@@ -42,6 +50,7 @@ public class HttpHelper {
             close(httpClient);
         }
     }
+
 
     private static void close(CloseableHttpClient httpClient) {
         try {
