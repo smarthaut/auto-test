@@ -60,18 +60,24 @@ public class HttpHelper {
         }
     }
 
-    public static String post(String requestUrl, String requestbody, HttpClientContext context) {
-        return post(requestUrl, requestbody,"utf-8",context);
+    public static String post(String requestUrl, String requestbody, HttpClientContext context,CookieStore cookieStore) {
+        return post(requestUrl, requestbody,"utf-8",context,cookieStore);
     }
     public static String post(String requestUrl, String requestbody) {
-        return post(requestUrl, requestbody,"utf-8",null);
+        return post(requestUrl, requestbody,"utf-8",null,null);
     }
 
-    private static String post(String requestUrl, String requestbody, String encode, HttpClientContext context){
+    private static String post(String requestUrl, String requestbody, String encode, HttpClientContext context,CookieStore cookieStore){
+        CloseableHttpClient httpClient;
+        if (cookieStore == null) {
+            httpClient = HttpClients.createDefault();
+        }
+        else {
+            httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();;
+        }
         if( requestUrl==null || requestUrl.trim().length()==0 ) {
             throw ExceptionBuilder.create("请求地址为空");
         }
-        CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
             HttpPost post = new HttpPost(requestUrl);
             //目前都是application/x-www-form-urlencoded，后续可以放到请求参数中

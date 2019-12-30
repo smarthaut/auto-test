@@ -36,8 +36,8 @@ mysql:
 ##data/.xls
 #data: appcasedate.xlsx
 #
-#app:
-#  version: 4.6.1
+app:
+  version: 4.6.2
 #
 #zhb_mp:
 #  province: 云南
@@ -114,12 +114,12 @@ insured:
   post_time_stamp : null
   order_id: null
   has_addressee_info : '1'
-  addressee_name : null
-  addressee_mobile : null
-  addressee_province : null
-  addressee_city : null
-  addressee_area : null
-  addressee_detail : null
+  addressee_name : 张汉
+  addressee_mobile : '17621100888'
+  addressee_province : 黑龙江
+  addressee_city : 哈尔滨
+  addressee_area : 五常市
+  addressee_detail : 南京路新华小区102室
   is_self_fetch : 0
   fetch_method : 1
   district: null
@@ -158,6 +158,7 @@ insured:
   applicant_car_relation: 1
   insured_car_relation: 1
   owner_car_relation: 1
+  issue_date: null
 
 #
 ##

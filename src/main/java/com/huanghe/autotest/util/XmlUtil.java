@@ -97,15 +97,38 @@ public class XmlUtil {
 
     public static  String getValueByattr(String attr,String filename){
         Map dataMap = readXml(filename);
-        String value = dataMap.get(attr).toString();
+        String value;
+        if (dataMap.get(attr).equals(null)){
+            value = "";
+        }else {
+            value = dataMap.get(attr).toString();
+        }
         return value;
     }
 
-    public static void main(String[] args) {
-        System.out.println(readXml("test01.xml"));
-        System.out.println(getValueByattr("insured_certificates_valid_date","test01.xml"));
+    /**
+
+     * @ param     :
+
+     * @ return    :
+
+     * @ Description: 设置属性值并重新生成xml文件
+
+     * @ Date       :2019-12-27
+
+    */
+
+    public  static void SetValueByAttr(String attr,String value,String filename){
+        Map dataMap = readXml(filename);
+        dataMap.put(attr,value);
+        createXMLFile(dataMap,filename);
     }
 
+//    public static void main(String[] args) {
+//        System.out.println(readXml("test01.xml"));
+//        System.out.println(getValueByattr("car_model_no","吉林_长春.xml"));
+//    }
+//
 
 
 }

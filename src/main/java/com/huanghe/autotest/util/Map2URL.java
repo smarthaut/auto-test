@@ -2,6 +2,8 @@ package com.huanghe.autotest.util;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Map;
 
 /**
@@ -15,15 +17,22 @@ public class Map2URL {
         if (map == null) {
             return "";
         }
+
         StringBuffer sb = new StringBuffer();
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            sb.append(entry.getKey() + "=" + entry.getValue());
-            sb.append("&");
+        String s = "";
+        try {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                sb.append(entry.getKey() + "=" + URLEncoder.encode(entry.getValue().toString(),"UTF-8"));
+                sb.append("&");
+            }
+            s = sb.toString();
+            if (s.endsWith("&")) {
+                s = StringUtils.substringBeforeLast(s, "&");
+            }
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
         }
-        String s = sb.toString();
-        if (s.endsWith("&")) {
-            s = StringUtils.substringBeforeLast(s, "&");
-        }
+
         return "?"+s;
     }
 

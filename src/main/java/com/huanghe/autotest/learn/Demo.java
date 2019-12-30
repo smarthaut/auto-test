@@ -26,15 +26,11 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-        Set<String> a = new HashSet<>();
-        Set<String> b = new HashSet<> ();
-        a.add("apple");
-        a.add("pear");
-        b.add("banana");
-        b.add("watermelon");
-        b.add("apple");
-        a.addAll(b);
-        System.out.println(a);
+        Map data = new HashMap();
+        data.put("1","apple");
+        data.put("w" , "people");
+        System.out.println(data.entrySet());
+        System.out.println(data);
     }
 
 }

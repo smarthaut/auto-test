@@ -15,6 +15,7 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BasicClientCookie;
+import org.apache.log4j.Logger;
 
 import java.io.FileWriter;
 import java.lang.reflect.Field;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
  */
 public class CookieManage {
     private static final String ATTRIBS = "attribs";
+    private static Logger logger = Logger.getLogger(CookieManage.class);
 
     public static String toJSONString(CookieStore cookieStore) {
         List<JSONObject> list = cookieStore.getCookies().stream().map(c -> {
@@ -134,6 +136,7 @@ public class CookieManage {
             FileWriter fileWriter = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fileWriter);
             bw.write(cookieValue);
+            logger.info("cookie存储"+cookieValue);
             bw.close();
         }catch (Exception e){
             e.printStackTrace();

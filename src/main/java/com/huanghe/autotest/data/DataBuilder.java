@@ -30,12 +30,13 @@ public class DataBuilder {
      * @ Date       :2019-12-26
      */
 
-    public static void generateXML(String filename, String province, String date) {
+    public static void generateXML(String filename, String date) {
         try {
             orderDateKey = new HashSet<>();
             insuredDataKey = new HashSet<>();
             allKey = new HashSet<>();
             allData = new HashMap<>();
+            String province = filename.split("_")[0];
             String orderId = DBconn.QueryOrderids(province, date);
             orderData = (Map<String, String>) DBconn.QueryAllDataByOrderId(orderId).toArray()[0];
             insuredData = (Map<String, String>) YmlUtil.getYmlByFileName("config.yml").get("insured");
@@ -51,6 +52,11 @@ public class DataBuilder {
                 }
 
             }
+            //初始化一些数据
+            allData.put("insured_mobile","17621100888");
+            allData.put("applicant_mobile" , "17621100888");
+            allData.put("owner_mobile" , "17621100888");
+            allData.put("version",YmlUtil.getValue("version"));
             XmlUtil.createXMLFile(allData, filename);
             //TODO 异常处理
         } catch (Exception e) {
@@ -120,7 +126,10 @@ public class DataBuilder {
     }
 
     public static void main(String[] args) {
-
-
+        List xmlNameList = generaXmlName();
+        for (int i =0 ; i < xmlNameList.size();i++){
+                String xmlnName = (String) xmlNameList.get(i);
+                generateXML(xmlnName,"2018-01-01");
+        }
     }
 }

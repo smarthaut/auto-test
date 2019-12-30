@@ -14,6 +14,6 @@ public class DataBuilderTest {
 
     @Test
     public void testGenerateXML() {
-        DataBuilder.generateXML("test01.xml","黑龙江","2018-01-01");
+        DataBuilder.generateXML("吉林_长春.xml","2018-01-01");
     }
 }

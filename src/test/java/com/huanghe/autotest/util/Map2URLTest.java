@@ -2,6 +2,7 @@ package com.huanghe.autotest.util;
 
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 /**
