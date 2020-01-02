@@ -30,8 +30,8 @@ mysql:
 
 
 ##测试环境切换
-#env: https://www.zhbbroker.com
-##env: https://www.zhbbroker.cn
+env: https://www.zhbbroker.com
+#env: https://www.zhbbroker.cn
 #
 ##data/.xls
 #data: appcasedate.xlsx
@@ -159,6 +159,7 @@ insured:
   insured_car_relation: 1
   owner_car_relation: 1
   issue_date: null
+  car_info_unique_key: null
 
 #
 ##

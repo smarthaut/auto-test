@@ -24,5 +24,6 @@ public class YmlUtilTest {
 
     @Test
     public void testGetYmlByFileName() {
+        System.out.println(YmlUtil.getValue("env"));
     }
 }

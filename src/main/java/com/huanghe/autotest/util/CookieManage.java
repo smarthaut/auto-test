@@ -117,12 +117,12 @@ public class CookieManage {
     public static void storageCookie(){
         try {
             Map map = new HashMap();
-            map.put("mobile","17621100841");
+            map.put("mobile","18622928103");
             map.put("pwd","89a5028ef7f4421b6b929e40a50d1bd577a45b06450120342a895ddbd23f6e28");
             map.put("password" , "f4d6f864d8f4eae109f17be472847cbd");
             CookieStore cookieStore = new BasicCookieStore();
             CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();;
-            String url = "https://www.zhbbroker.cn/yiiapp/user-pwd/user-pwd-login"+
+            String url = YmlUtil.getValue("env")+"/yiiapp/user-pwd/user-pwd-login"+
                     Map2URL.getUrlParamsByMap(map);
             HttpPost httpPost = new HttpPost(url);
             HttpClientContext context= null;

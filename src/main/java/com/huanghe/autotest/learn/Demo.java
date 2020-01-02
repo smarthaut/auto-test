@@ -1,4 +1,5 @@
 package com.huanghe.autotest.learn;
+import javax.sound.midi.Soundbank;
 import java.util.HashSet;
 import	java.util.Set;
 
@@ -31,6 +32,8 @@ public class Demo {
         data.put("w" , "people");
         System.out.println(data.entrySet());
         System.out.println(data);
+        String city = "长春.xml";
+        System.out.println(city.split("\\.")[0]);
     }
 
 }

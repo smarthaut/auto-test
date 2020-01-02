@@ -70,7 +70,6 @@ public class YmlUtil {
      */
     public static String getValue(String key){
         Map<String,String> map = parseYaml(getYmlByFileName(null));
-        System.out.println("map"+map);
         if(map==null)return null;
         return map.get(key);
     }

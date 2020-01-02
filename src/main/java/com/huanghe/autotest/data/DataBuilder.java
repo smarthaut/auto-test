@@ -72,22 +72,35 @@ public class DataBuilder {
      * @ Date       :2019-12-26
      */
 
-    public static List<String> generaXmlName() {
+    public static List<String> generaXmlName(String province,String city) {
         List<String> xmlName = new ArrayList<>();
         CookieManage.storageCookie();
-        String data = HttpHelper.get("https://www.zhbbroker.cn/chc-shop/v1/car/get-area-config",
+        String data = HttpHelper.get(YmlUtil.getValue("env")+"/chc-shop/v1/car/get-area-config",
                 null, CookieManage.fromFile("cookie.txt"));
         JSONObject obj = JSON.parseObject(data);
         for (Map.Entry<String, Object> s : obj.entrySet()) {
             if (s.getKey() == "data") {
                 List<Map<String, Object>> o = (List<Map<String, Object>>) s.getValue();
                 for (int i = 0; i < o.size(); i++) {
-                    String province = (String) o.get(i).get("n");
+                    String inerprovince = (String) o.get(i).get("n");
                     List<Map<String, Object>> c = (List<Map<String, Object>>) o.get(i).get("c");
                     for (int j = 0; j < c.size(); j++) {
-                        String city = (String) c.get(j).get("n");
-                        String name = province + "_" + city + ".xml";
-                        xmlName.add(name);
+                        String inercity = (String) c.get(j).get("n");
+                        if (province == null){
+                            String name = inerprovince + "_" + inercity + ".xml";
+                            xmlName.add(name);
+                        }else if (province!=null&&city!=null){
+                            if (inerprovince.equals( province)&&inercity.equals(city)){
+                                String name = inerprovince + "_" + inercity + ".xml";
+                                xmlName.add(name);
+                            }
+                        }else {
+                            if (inerprovince.equals(province)){
+                                String name = inerprovince + "_" + inercity + ".xml";
+                                xmlName.add(name);
+                            }
+                        }
+
                     }
                     //TODO  暂未实现指定省市获取可报价xml
 
@@ -123,13 +136,6 @@ public class DataBuilder {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
-    public static void main(String[] args) {
-        List xmlNameList = generaXmlName();
-        for (int i =0 ; i < xmlNameList.size();i++){
-                String xmlnName = (String) xmlNameList.get(i);
-                generateXML(xmlnName,"2018-01-01");
-        }
     }
 }
